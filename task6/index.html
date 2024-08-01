@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Classic cars</h1>
+    <section class="container">
+
+        <section class="img-slide-show anime">
+            <img class="" src="lib/img/images1.jpg" alt="">
+            <img class="" src="lib/img/images2.jpg" alt="">
+            <img class="d-block" src="lib/img/images3.jpg" alt="">
+            <img class="" src="lib/img/mages4.jpg" alt="">
+        </section>
+
+        <section class="btn-slide-show">
+            <button class="btn-1" onclick="back()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+              </svg></button>
+            <button class="btn-2" onclick="next()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+              </svg></button>
+        </section>
+
+        <section class="dots-slide-show">
+            <span class="dots"></span>
+            <span class="dots"></span>
+            <span class="dots dot-color"></span>
+            <span class="dots"></span>
+        </section>
+
+
+        <section class="nums">
+            <h5><span class="nums-slide">3</span> / 4</h5>
+        </section>
+
+    </section>
+</body>
+<script>
+    var imgslide = document.getElementsByClassName("img-slide-show")[0];
+    var img = document.getElementsByTagName('img');
+    var numsSlide = document.getElementsByClassName('nums-slide')[0]
+    var bgdot = document.getElementsByClassName('dots');
+    console.log(bgdot)
+
+    function next() {
+
+
+        imgslide.className = "img-slide-show";
+
+        setTimeout(function() {
+
+            imgslide.className += " anime";
+
+            for (var i = 0; i < img.length; i++) {
+
+
+                if (i == 3) {
+                    bgdot[i].className = 'dots';
+                    img[i].className = "";
+                    i = 0;
+                    img[i].className += "d-block"
+
+                    numsSlide.innerHTML = i + 1;
+
+
+                    bgdot[i].className += " dot-color"
+
+                    return
+                } else if (img[i].className == "d-block") {
+                    bgdot[i].className = 'dots';
+                    img[i].className = "";
+                    img[i + 1].className += "d-block"
+
+                    numsSlide.innerHTML = i + 2;
+
+
+                    bgdot[i + 1].className += " dot-color"
+
+                    return
+                }
+            }
+        }, 100)
+
+
+
+    }
+
+    function back() {
+
+        imgslide.className = "img-slide-show";
+
+        setTimeout(function() {
+            imgslide.className += " anime";
+            for (var j = img.length - 1; j >= 0; j--) {
+                if (j == 0) {
+                    bgdot[j].className = 'dots';
+                    img[j].className = "";
+                    j = 3;
+                    img[j].className += "d-block"
+                    bgdot[j].className += " dot-color"
+                    numsSlide.innerHTML = j + 1;
+                    return
+                } else if (img[j].className == "d-block") {
+                    img[j].className = "";
+                    bgdot[j].className = 'dots';
+                    img[j - 1].className += "d-block"
+                    bgdot[j - 1].className += " dot-color"
+                    numsSlide.innerHTML = j;
+                    return
+                }
+            }
+        }, 100)
+
+    }
+</script>
+<script>
+    var imgslide = document.getElementsByClassName("img-slide-show")[0];
+    var img = document.getElementsByTagName('img');
+    var numsSlide = document.getElementsByClassName('nums-slide')[0]
+    var bgdot = document.getElementsByClassName('dots');
+    console.log(bgdot)
+
+    function next() {
+
+
+        imgslide.className = "img-slide-show";
+
+        setTimeout(function() {
+
+            imgslide.className += " anime";
+
+            for (var i = 0; i < img.length; i++) {
+
+
+                if (i == 3) {
+                    bgdot[i].className = 'dots';
+                    img[i].className = "";
+                    i = 0;
+                    img[i].className += "d-block"
+
+                    numsSlide.innerHTML = i + 1;
+
+
+                    bgdot[i].className += " dot-color"
+
+                    return
+                } else if (img[i].className == "d-block") {
+                    bgdot[i].className = 'dots';
+                    img[i].className = "";
+                    img[i + 1].className += "d-block"
+
+                    numsSlide.innerHTML = i + 2;
+
+
+                    bgdot[i + 1].className += " dot-color"
+
+                    return
+                }
+            }
+        }, 100)
+
+
+
+    }
+
+    function back() {
+
+        imgslide.className = "img-slide-show";
+
+        setTimeout(function() {
+            imgslide.className += " anime";
+            for (var j = img.length - 1; j >= 0; j--) {
+                if (j == 0) {
+                    bgdot[j].className = 'dots';
+                    img[j].className = "";
+                    j = 3;
+                    img[j].className += "d-block"
+                    bgdot[j].className += " dot-color"
+                    numsSlide.innerHTML = j + 1;
+                    return
+                } else if (img[j].className == "d-block") {
+                    img[j].className = "";
+                    bgdot[j].className = 'dots';
+                    img[j - 1].className += "d-block"
+                    bgdot[j - 1].className += " dot-color"
+                    numsSlide.innerHTML = j;
+                    return
+                }
+            }
+        }, 100)
+
+    }
+</script>
+
+</html>
